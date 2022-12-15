@@ -20,22 +20,35 @@
 
 // console.log(addnumber(13,41))
 
-class Personal{
-    name:string
-    age:number
-    phone:string
-    constructor(name:string,age:number,phone:string){
-        this.name=name
-        this.age=age
-        this.phone=phone
-    console.log("Personal was created")
+class Personal {
+    name: string
+    age: number
+    phone: string
+    constructor(name: string, age: number, phone: string) {
+        this.name = name
+        this.age = age
+        this.phone = phone
+        console.log("Personal was created")
 
     }
-    showInfos(){
+    showInfos() {
         console.log(`Name: ${this.name}\nAge: ${this.age}\nPhone: ${this.phone}`)
     }
 
 }
 
-const names=new Personal("Ali",22,"775480446")
-names.showInfos()
+class Employee extends Personal {
+    salary: number
+    constructor(name:string,age:number,phone:string,salary:number){
+        super(name,age,phone)
+        this.salary=salary
+    }
+    showInfos(){
+        super.showInfos()
+        console.log("Salary: "+this.salary)
+    }
+}
+
+const Ali=new Employee("Ali",22,"775480446",4000)
+
+Ali.showInfos()
