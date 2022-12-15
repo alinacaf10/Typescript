@@ -16,39 +16,68 @@
 //         return "First num: "+num1
 //     }
 //     return "sum: "+(num1+num2)
+// // }
+
+// // console.log(addnumber(13,41))
+
+// class Personal {
+//     name: string
+//     age: number
+//     phone: string
+//     constructor(name: string, age: number, phone: string) {
+//         this.name = name
+//         this.age = age
+//         this.phone = phone
+//         console.log("Personal was created")
+
+//     }
+//     showInfos() {
+//         console.log(`Name: ${this.name}\nAge: ${this.age}\nPhone: ${this.phone}`)
+//     }
+
 // }
 
-// console.log(addnumber(13,41))
+// class Employee extends Personal {
+//     salary: number
+//     constructor(name:string,age:number,phone:string,salary:number){
+//         super(name,age,phone)
+//         this.salary=salary
+//     }
+//     showInfos(){
+//         super.showInfos()
+//         console.log("Salary: "+this.salary)
+//     }
+// }
 
-class Personal {
-    name: string
-    age: number
-    phone: string
-    constructor(name: string, age: number, phone: string) {
-        this.name = name
-        this.age = age
-        this.phone = phone
-        console.log("Personal was created")
+// const Ali=new Employee("Ali",22,"775480446",4000)
 
-    }
-    showInfos() {
-        console.log(`Name: ${this.name}\nAge: ${this.age}\nPhone: ${this.phone}`)
-    }
+// Ali.showInfos()
 
+interface Database{
+    add()
+    delete()
 }
 
-class Employee extends Personal {
-    salary: number
-    constructor(name:string,age:number,phone:string,salary:number){
-        super(name,age,phone)
-        this.salary=salary
+class Mysql implements Database{
+    add() {
+        console.log("Mysql Added...")
     }
-    showInfos(){
-        super.showInfos()
-        console.log("Salary: "+this.salary)
+    delete() {
+        console.log("Mysql Deleted...")
+    }
+}
+class Mongo implements Database{
+    add() {
+        console.log("Mongo Added...")
+    }
+    delete() {
+        console.log("Mongo Deleted...")
     }
 }
 
-const Ali=new Employee("Ali",22,"775480446",4000)
+function data(database:Database){
+    database.add()
+}
+data(new Mysql)
 
-Ali.showInfos()
+data(new Mongo)
